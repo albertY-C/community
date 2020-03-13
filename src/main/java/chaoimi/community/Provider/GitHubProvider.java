@@ -21,13 +21,14 @@ public class GitHubProvider {
             try (Response response = client.newCall(request).execute()) {
                 String string = response.body().string();
                 System.out.println(string);
-                return string;
-            } catch (IOException e) {
+                String token = string.split("&")[0].split("=")[1];
+                return token;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return null;
         }
-
-        public GitHubUser gitHubUser(String accessToken){
+        public GitHubUser getUser(String accessToken){
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
                     .url("https://api.github.com/user?access_token="+accessToken)

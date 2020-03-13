@@ -2,6 +2,7 @@ package chaoimi.community.controller;
 
 import chaoimi.community.Provider.GitHubProvider;
 import chaoimi.community.dto.AccessTokenDTO;
+import chaoimi.community.dto.GitHubUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,9 @@ public class AuthorizeController {
         accessTokenDTO.setState(state);
         accessTokenDTO.setClient_id("daa25e3521055d2553c6");
         accessTokenDTO.setClient_secret("97145a6f0760d9def9a86e5686266daaeb45b62b");
-        gitHubProvider.getAccessToken(accessTokenDTO);
+        String accessToken = gitHubProvider.getAccessToken(accessTokenDTO);
+        GitHubUser user = gitHubProvider.getUser(accessToken);
+        System.out.println(user.getName());
         return "index";
     }
 }
