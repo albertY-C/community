@@ -17,7 +17,7 @@ public class AuthorizeController {
     public String callback(@RequestParam(name = "code")String code,
                            @RequestParam(name = "state")String state) {
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
-        accessTokenDTO.setClient_id(code);
+        accessTokenDTO.setCode(code);
         accessTokenDTO.setRedirect_url("http://localhost:8887/callback");
         accessTokenDTO.setState(state);
         accessTokenDTO.setClient_id("daa25e3521055d2553c6");
