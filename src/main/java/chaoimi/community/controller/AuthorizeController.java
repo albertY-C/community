@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.PriorityBlockingQueue;
 
 @Controller
@@ -26,7 +27,8 @@ public class AuthorizeController {
 
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code")String code,
-                           @RequestParam(name = "state")String state) {
+                           @RequestParam(name = "state")String state,
+                            HttpServletRequest request) {
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setCode(code);
         accessTokenDTO.setRedirect_url("http://localhost:8887/callback");
@@ -35,7 +37,13 @@ public class AuthorizeController {
         accessTokenDTO.setClient_secret("97145a6f0760d9def9a86e5686266daaeb45b62b");
         String accessToken = gitHubProvider.getAccessToken(accessTokenDTO);
         GitHubUser user = gitHubProvider.getUser(accessToken);
-        System.out.println(user.getName());
-        return "index";
+        if(user != null){
+            // 登陆成功，写cookie和session
+            request.getSession().setAttribute("User", user);
+            return "redirect:/";
+        }else {
+            // 登陆失败
+            return "redirect:/";
+        }
     }
 }
