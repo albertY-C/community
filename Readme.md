@@ -10,5 +10,18 @@
 ## 工具
 [Git下载](https://git-scm.com/download)  
 [GitHub托管](https://github.com/albertY-C?tab=repositories)  
+[H2数据库](http://www.h2database.com/html/main.html)  
+
+## 脚本
+```sql
+CREATE CACHED TABLE "PUBLIC"."USER"(
+    "ID" INT DEFAULT NEXT VALUE FOR "PUBLIC"."SYSTEM_SEQUENCE_425C3AD4_14AA_4B6C_B68E_DFD98F58E170" NOT NULL NULL_TO_DEFAULT SEQUENCE "PUBLIC"."SYSTEM_SEQUENCE_425C3AD4_14AA_4B6C_B68E_DFD98F58E170",
+    "ACCOUNT_ID" VARCHAR(100),
+    "NAME" VARCHAR(50),
+    "TOKEN" CHAR(36),
+    "GMT_CREATE" BIGINT,
+    "GMT_MODIFIED" BIGINT
+)
+```
 
 
