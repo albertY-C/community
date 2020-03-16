@@ -11,8 +11,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
-@Controller
-public class IndexController {
+    @Controller
+    public class IndexController {
     @Autowired(required = false)
     private UserMapper userMapper;
 
