@@ -6,7 +6,8 @@
 [Bootstraps 文档](https://v3.bootcss.com/getting-started/)  
 [GitHub 授权文档](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/)   
 [Spring](http://docs.spring.io/spring-boot/docs/2.0.0.RC1/reference/htmlsingle/#boot-features-embedded-database-support)  
-[页面布局参考](https://v3.bootcss.com/css/#grid)
+[页面布局参考](https://v3.bootcss.com/css/#grid)  
+[Themeleaf](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#setting-attribute-values)
 ## 工具
 [Git下载](https://git-scm.com/download)  
 [GitHub托管](https://github.com/albertY-C?tab=repositories)  

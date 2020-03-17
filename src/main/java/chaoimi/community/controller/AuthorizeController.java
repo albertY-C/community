@@ -31,7 +31,7 @@ public class AuthorizeController {
     @Value("${github.redirect.url}")
     private String redirectUrl;
 
-    @Autowired
+    @Autowired(required = false)
     private UserMapper userMapper;
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code")String code,
@@ -54,8 +54,8 @@ public class AuthorizeController {
             user.setAccountId(String.valueOf(githubUser.getId()));
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
+            user.setAvataUrl(githubUser.getAvatarUrl());
             userMapper.insert(user);
-
             //2020-03-15
             response.addCookie(new Cookie("token", token));
             // 登陆成功，写cookie和session
