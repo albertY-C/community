@@ -1,7 +1,5 @@
 package chaoimi.community.model;
 
-import java.util.concurrent.PriorityBlockingQueue;
-
 public class Question {
     private Integer id;
     private String title;
