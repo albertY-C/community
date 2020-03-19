@@ -1,8 +1,6 @@
 package chaoimi.community.controller;
 
 import chaoimi.community.dto.QuestionDTO;
-import chaoimi.community.mapper.QuestionMapper;
-import chaoimi.community.model.Question;
 import chaoimi.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
