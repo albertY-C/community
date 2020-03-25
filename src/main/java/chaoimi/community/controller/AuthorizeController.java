@@ -5,7 +5,6 @@ import chaoimi.community.dto.AccessTokenDTO;
 import chaoimi.community.dto.GitHubUser;
 import chaoimi.community.model.User;
 import chaoimi.community.service.UserService;
-import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -29,8 +28,8 @@ public class AuthorizeController {
     @Value("${github.client.secret}")
     private String ClientSecret;
 
-    @Value("${github.redirect.url}")
-    private String redirectUrl;
+    @Value("${github.redirect.uri}")
+    private String redirectUri;
 
     @Autowired
     private UserService userService;
@@ -42,7 +41,7 @@ public class AuthorizeController {
                            HttpServletResponse response) {
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setCode(code);
-        accessTokenDTO.setRedirect_url(redirectUrl);
+        accessTokenDTO.setRedirect_uri(redirectUri);
         accessTokenDTO.setState(state);
         accessTokenDTO.setClient_id(ClientId);
         accessTokenDTO.setClient_secret(ClientSecret);
