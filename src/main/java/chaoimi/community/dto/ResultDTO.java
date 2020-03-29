@@ -3,9 +3,19 @@ package chaoimi.community.dto;
 import chaoimi.community.exception.CustomizeErrorCode;
 import chaoimi.community.exception.CustomizeException;
 
-public class ResultDTO {
+public class ResultDTO<T> {
     private Integer code;
     private String message;
+    private T data;
+
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
 
     public Integer getCode() {
         return code;
@@ -45,5 +55,12 @@ public class ResultDTO {
         return resultDTO;
     }
 
+    public static <T> ResultDTO okof(T t) {
+        ResultDTO resultDTO = new ResultDTO();
+        resultDTO.setCode(200);
+        resultDTO.setMessage("请求成功");
+        resultDTO.setData(t);
+        return resultDTO;
+    }
 
 }
