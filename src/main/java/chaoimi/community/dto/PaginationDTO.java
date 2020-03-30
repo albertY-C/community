@@ -1,14 +1,10 @@
 package chaoimi.community.dto;
 
-import ch.qos.logback.classic.turbo.TurboFilter;
-import com.sun.xml.internal.ws.runtime.config.TubelineFeatureReader;
-import sun.plugin2.os.windows.FLASHWINFO;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaginationDTO {
-    private List<QuestionDTO> questions;
+public class PaginationDTO<T> {
+    private List<T> data;
     private boolean showPrevious;
     private boolean showFirstPage;
     private boolean showNext;
@@ -74,12 +70,12 @@ public class PaginationDTO {
         this.pages = pages;
     }
 
-    public List<QuestionDTO> getQuestions() {
-        return questions;
+    public List<T> getData() {
+        return data;
     }
 
-    public void setQuestions(List<QuestionDTO> questions) {
-        this.questions = questions;
+    public void setData(List<T> data) {
+        this.data = data;
     }
 
     public void setPagination(Integer totalPage, Integer page) {

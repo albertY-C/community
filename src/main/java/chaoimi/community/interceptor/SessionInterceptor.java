@@ -1,8 +1,11 @@
 package chaoimi.community.interceptor;
 
+import chaoimi.community.mapper.NotificationMapper;
 import chaoimi.community.mapper.UserMapper;
+import chaoimi.community.model.Notification;
 import chaoimi.community.model.User;
 import chaoimi.community.model.UserExample;
+import chaoimi.community.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -15,8 +18,13 @@ import java.util.List;
 
 @Service
 public class SessionInterceptor implements HandlerInterceptor {
+
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private NotificationService notificationService;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Cookie[] cookies = request.getCookies();
@@ -29,6 +37,8 @@ public class SessionInterceptor implements HandlerInterceptor {
                     List<User> users = userMapper.selectByExample(userExample);
                     if(users.size() != 0){
                         request.getSession().setAttribute("user",users.get(0));
+                        Long unreadCount = notificationService.unreadCount(users.get(0).getId());
+                        request.getSession().setAttribute("unreadCount",unreadCount);
                     }
                     break;
                 }

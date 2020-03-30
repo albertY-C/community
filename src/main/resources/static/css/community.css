@@ -35,10 +35,11 @@ body {
 }
 .question-tag{
     margin-right: 8px;
-    font-size: 11px;
+    font-size: 12px;
 }
 .question-font{
-    font-size: 11px;
+    margin-right: 5px;
+    font-size: 12px;
 }
 .question-related{
     line-height: 20px;
@@ -50,8 +51,22 @@ body {
 .question-wechat{
     width: 40%;
 }
+.publish-tag-tab{
+    display: none;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.publish-tag-tab .label-info{
+    white-space: normal;
+    margin: 5px 5px;
+    display: inline-block;
+    font-size: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
 .community-menu {
-    display: block;
     color: #999;
     font-size: 13px;
     margin-bottom: 15px;
