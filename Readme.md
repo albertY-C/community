@@ -1,5 +1,16 @@
 ## CHAOMI论坛
 
+## 部署
+- Git
+- JDK
+- Maven
+- MySQL
+
+## 步骤
+- yum update
+- yum git
+- - mkdir App
+
 ## 资料
 [spring Web 文档](https://spring.io/guides/gs/serving-web-content/)  
 [ES 社区](https://elasticsearch.cn/)   

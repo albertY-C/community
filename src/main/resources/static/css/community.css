@@ -122,7 +122,10 @@ body {
 .menu .icon:hover {
     color: #499ef3;
 }
-
+.footer{
+    padding: 10px 20%;
+    color: #828080;
+}
 
 
 

@@ -5,6 +5,7 @@ import chaoimi.community.dto.AccessTokenDTO;
 import chaoimi.community.dto.GitHubUser;
 import chaoimi.community.model.User;
 import chaoimi.community.service.UserService;
+import org.hibernate.validator.internal.util.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
