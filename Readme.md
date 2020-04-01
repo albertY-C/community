@@ -7,9 +7,11 @@
 - MySQL
 
 ## 步骤
-- yum update
-- yum git
-- - mkdir App
+- yum update  
+- yum git  
+- mkdir App  
+- java -jar -Dspring.profiles.active=production target/community-0.0.1-SNAPSHOT.jar
+- ps -aux | grep java
 
 ## 资料
 [spring Web 文档](https://spring.io/guides/gs/serving-web-content/)  
@@ -45,5 +47,6 @@ CREATE TABLE USER
 ```bash
 mvn flyway:migrate  
 mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate  
+ps -aux | grep java
 ```
 
