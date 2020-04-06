@@ -49,7 +49,8 @@ body {
     padding-left: 0;
 }
 .question-wechat{
-    width: 40%;
+    hight:100%;
+    width: 100%;
 }
 .publish-tag-tab{
     display: none;

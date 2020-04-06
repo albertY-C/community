@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>炒米社区</title>
+    <title>YOU TALK 社区</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
@@ -23,63 +23,92 @@
 <div class="container-fluid main">
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xm-12">
-            <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span>发现</h2>
-            <hr>
-            <div class="media" th:each="question : ${pagination.data}">
-                <div class="media-left">
-                    <a href="#">
-                        <img class="media-object img-rounded"
-                             th:src="${question.user != null? question.user.avatarUrl:'/images/default_avatar.png' }">
-                    </a>
-                </div>
-                <div class="media-body ">
-                    <h4 class="media-heading">
-                        <a th:href="@{'/question/' + ${question.id}}" th:text="${question.title}"></a>
-                    </h4>
-                    <span class="text-desc"><span th:text="${question.commentCount}"></span> 个评论 •
+            <div>
+                <div style="width:2px;height:700px;border-left:1px solid #ccc;
+                float:right;margin-left:10px;margin-top: 20px;margin-bottom: 20px"></div>
+                <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span>发现</h2>
+                <hr>
+                <div>
+                    <div class="media" th:each="question : ${pagination.data}">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object img-rounded"
+                                     th:src="${question.user != null? question.user.avatarUrl:'/images/default_avatar.png' }">
+                            </a>
+                        </div>
+                        <div class="media-body ">
+                            <h4 class="media-heading">
+                                <a th:href="@{'/question/' + ${question.id}}" th:text="${question.title}"></a>
+                            </h4>
+                            <span class="text-desc"><span th:text="${question.commentCount}"></span> 个评论 •
                             <span th:text="${question.viewCount}"></span> 次浏览 •
                             <span th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
-                    </span>
-                    <hr class="col-lg-12 col-md-12 col-sm-12 col-xm-12">
-                </div>
-            </div>
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li th:if="${pagination.showFirstPage}">
-                        <a th:href="@{/(page=1,search = ${search})}" aria-label="Previous">
-                            <span aria-hidden="true">&lt;&lt;</span>
-                        </a>
-                    </li>
-                    <li th:if="${pagination.showPrevious}">
-                        <a th:href="@{/(page=${pagination.page - 1},search = ${search})}" aria-label="Previous">
-                            <span aria-hidden="true">&lt;</span>
-                        </a>
-                    </li>
-                    <li th:each="page : ${pagination.pages}" th:class="${pagination.page == page}? 'active' : ''">
-                        <a th:href="@{/(page=${page},search = ${search})}" th:text="${page}">
-                        </a>
-                    </li>
+                            </span>
+                            <hr class="col-lg-12 col-md-12 col-sm-12 col-xm-12">
+                        </div>
+                    </div>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li th:if="${pagination.showFirstPage}">
+                                <a th:href="@{/(page=1,search = ${search})}" aria-label="Previous">
+                                    <span aria-hidden="true">&lt;&lt;</span>
+                                </a>
+                            </li>
+                            <li th:if="${pagination.showPrevious}">
+                                <a th:href="@{/(page=${pagination.page - 1},search = ${search})}" aria-label="Previous">
+                                    <span aria-hidden="true">&lt;</span>
+                                </a>
+                            </li>
+                            <li th:each="page : ${pagination.pages}"
+                                th:class="${pagination.page == page}? 'active' : ''">
+                                <a th:href="@{/(page=${page},search = ${search})}" th:text="${page}">
+                                </a>
+                            </li>
 
-                    <li th:if="${pagination.showNext}">
-                        <a th:href="@{/(page=${pagination.page + 1}, search = ${search})}" aria-label="Previous">
-                            <span aria-hidden="true">&gt;</span>
-                        </a>
-                    </li>
-                    <li th:if="${pagination.showEndPage}">
-                        <a th:href="@{/(page=${pagination.totalPage})}" aria-label="Previous">
-                            <span aria-hidden="true">&gt;&gt;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                            <li th:if="${pagination.showNext}">
+                                <a th:href="@{/(page=${pagination.page + 1}, search = ${search})}"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true">&gt;</span>
+                                </a>
+                            </li>
+                            <li th:if="${pagination.showEndPage}">
+                                <a th:href="@{/(page=${pagination.totalPage})}" aria-label="Previous">
+                                    <span aria-hidden="true">&gt;&gt;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xm-12">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div>`
                 <h4>站长微信</h4>
                 <img class="img-thumbnail question-wechat" src="/images/chaomi.png">
             </div>
+            <hr>
+            <div>
+                <h4>站长推荐文章</h4>
+                <a href="https://spring.io/">Spring Boot官方文档</a><br>
+                <a href="https://www.bilibili.com/video/BV1r4411r7au?p=1">Spring Boot项目教程</a><br>
+                <a href="https://www.thymeleaf.org/">ThymeLeaf前端框架</a><br>
+                <a href="https://www.runoob.com/">菜鸟教程</a><br>
+                <a href="https://v3.bootcss.com/">BootStrap前端样式</a><br>
+                <a href="https://github.com/">GitHub官网</a><br>
+                <a href="https://www.bilibili.com/video/BV1at411V7xQ?from=search&seid=3583234034704371780">Git相关教程</a><br>
+            </div>
+            <hr>
+            <div>
+                <h4>社区注意事项</h4>
+                -- 内容发布：静止发布非法或者不道德信息内容；<br>
+                -- 用户指南：用户应遵守社区秩序和网络道德，不得污言秽语，不得进行刷屏、恶意顶贴、恶意灌水等影响他人阅读的行为;<br>
+                -- 回复指南：用户发言前应了解所在版的讨论主题和相关规定，不发表与版规不符的言论，不在他人的帖子内发表与主帖内容无关的言论；<br>
+            </div>
         </div>
     </div>
+</div>
 </div>
 <div th:insert="~{footer :: foot}"></div>
 </body>

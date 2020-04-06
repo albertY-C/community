@@ -2,7 +2,6 @@ package chaoimi.community.controller;
 
 import chaoimi.community.cache.TagCache;
 import chaoimi.community.dto.QuestionDTO;
-import chaoimi.community.mapper.QuestionMapper;
 import chaoimi.community.model.Question;
 import chaoimi.community.model.User;
 import chaoimi.community.service.QuestionService;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.swing.text.html.HTML;
 
 @Controller
 public class PublishController {
@@ -68,9 +66,9 @@ public class PublishController {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
             model.addAttribute("error", "用户未登录");
-            return "publish";
-        }
-        Question question = new Question();
+        return "publish";
+    }
+    Question question = new Question();
         question.setTitle(title);
         question.setDescription(description);
         question.setTag(tag);
